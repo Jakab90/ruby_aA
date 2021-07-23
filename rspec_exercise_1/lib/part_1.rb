@@ -20,7 +20,7 @@ def alternating_case(str)
     sentence = []
 
     (0...words.length).each do |i|
-        if i % 2 == 0
+        if (i +2) % 2 == 0
             sentence << words[i].upcase
         else
             sentence << words[i].downcase
