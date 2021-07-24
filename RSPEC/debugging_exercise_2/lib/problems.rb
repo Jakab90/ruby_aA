@@ -17,14 +17,47 @@ end
 
 p largest_prime_factor(69)
 
+def unique_chars?(str)
+    hashy = Hash.new(0)
+    str.each_char do |char|
+        hashy[char] += 1
+        if hashy[char] > 1
+            return false
+        end
+    end
+    true
+end
 
-# def prime(num)
-#     return false if num < 2
+p unique_chars?("paus")
 
-#     (2...num).each do |factor|
-#         if num % factor == 0
-#             return false
-#         else
-#             return true
-#         end
-#     end
+def dupe_indices(arr)
+    hashly = Hash.new { |h, k| h[k] = [] }
+    arr.each_with_index do |char, idx|
+        hashly[char] << idx
+    end
+    hashly.select { |ele, arr| arr.length > 1}
+end
+
+p dupe_indices(["a","b","b","b","b","c"])
+
+def ana_array(arr1, arr2)
+    hashly = Hash.new(0)
+
+    arr1.each do |ele|
+        hashly[ele] += 1
+    end
+
+    arr2.each do |ele|
+        hashly[ele] += 1
+    end   
+
+hashly.each_key do |k|
+    if hashly[k] % 2 != 0
+        return false
+    end
+end
+      true
+
+end
+
+p ana_array(["b"], ["a"])
