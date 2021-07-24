@@ -7,7 +7,7 @@
 require "byebug"
 
 def half_and_double(array)
-debugger
+# debugger
     new_array = []
     array.map do |num|
         if num % 2 == 0

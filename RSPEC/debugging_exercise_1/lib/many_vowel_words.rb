@@ -6,11 +6,11 @@
 require "byebug"
 
 def many_vowel_words(sentence)
-    words = sentence.split("")
+    words = sentence.split(" ")
 
     new_words = words.select do |word|
-        num_vowels = num_vowels(word)
-        num_vowels >= 2
+        numb_vowels = num_vowels(word)
+        numb_vowels >= 2
     end
 
     new_words.join(" ")
@@ -19,7 +19,10 @@ end
 def num_vowels(word)
     count = 0
     word.each_char do |char|
-        count += 1 if "aeiou".includes?(char)
+        count += 1 if "aeiou".include?(char)
     end
     count
 end
+
+
+p many_vowel_words("Tiggo bigogo bitititys mung tung")
